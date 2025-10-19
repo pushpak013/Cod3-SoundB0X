@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amazon Price Tracker</title>
+</head>
+<body>
+    <h1>Track a New Product</h1>
+    <form action="{{ url_for('add_product') }}" method="post">
+        <span>enter product link to track:<span>
+        <input type="url" name="url" placeholder="Amazon product URL" required><br>
+        <button type="submit">Track</button>
+    </form>
+</body>
+</html>
