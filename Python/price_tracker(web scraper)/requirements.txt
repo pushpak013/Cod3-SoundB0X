@@ -3,3 +3,5 @@ requests
 matplotlib
 flask
 tracker
+lxml
+BeautifulSoup  #if give error of older version comment it
