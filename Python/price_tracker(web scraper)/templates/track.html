@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tracked Products</title>
+</head>
+<body>
+    <h1>Tracked Products</h1>
+    <ul>
+        {% for product in products %}
+            <li>
+                <strong>{{ product.title }}</strong><br>
+                Desired Price: ₹{{ product.desired_price }}<br>
+                Latest Price: ₹{{ product.price_history[-1].price }}<br>
+                {% if product.price_history[-1].price <= product.desired_price %}
+                    <span style="color: green;">✅ Price Dropped!</span>
+                {% endif %}
+                <br>
+                <a href="{{ product.url }}" target="_blank">View on Amazon</a>
+                <br><br>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Add Another Product</a>
+</body>
+</html>
