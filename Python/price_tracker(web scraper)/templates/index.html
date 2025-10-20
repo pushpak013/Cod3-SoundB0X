@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Amazon Price Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- RWD Table Patterns CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body style="padding: 20px;">
+
+  <h1>Add a New Product to Track</h1>
+  <form method="post">
+    <input type="url" name="url" placeholder="Amazon product URL" class="form-control" required style="max-width: 400px; display: inline-block;">
+    <button type="submit" class="btn btn-primary">Track</button>
+  </form>
+
+  <h2>Tracking Products:</h2>
+
+  <div class="table-responsive" data-pattern="priority-columns">
+    <table class="table table-bordered table-hover">
+      <caption class="text-center">Tracked Products</caption>
+      <thead>
+        <tr>
+          <th data-priority="1">Id</th>
+          <th data-priority="2">Title</th>
+          <th data-priority="3">Price</th>
+          <th data-priority="4">Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for id, url, title, price in tracked %}
+        <tr>
+          <td>{{ id }}</td>
+          <td>{{ title }}</td>
+          <td>{{ price }}</td>
+          <td><a href="{{ url }}" target="_blank">View</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- RWD Table Patterns -->
+  <script src="script.js"></script>
+</body>
+</html>
