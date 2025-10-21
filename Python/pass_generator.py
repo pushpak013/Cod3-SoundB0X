@@ -9,6 +9,11 @@ s4 = list(string.punctuation)
 
 user_input = input("How many characters do you want in your password? ")
 
+random.shuffle(s1)
+random.shuffle(s2)
+random.shuffle(s3)
+random.shuffle(s4)
+
 while True:
     try:
         characters_number = int(user_input)
